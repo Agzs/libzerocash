@@ -1,6 +1,10 @@
 libzerocash: a C++ library implementing the Zerocash protocol
 ================================================================================
 
+forked from: [https://github.com/Zerocash/libzerocash](https://github.com/Zerocash/libzerocash)
+
+refer to: [https://github.com/Electric-Coin-Company/libzerocash](https://github.com/Electric-Coin-Company/libzerocash)
+
 The libzerocash library implements the Zerocash protocol, which provides a *privacy-preserving* version of [Bitcoin](https://bitcoin.org/) (or a similar currency).
 
 Zerocash fixes an inherent weakness of Bitcoin: every user's payment history is recorded in public view on the [block chain](https://en.bitcoin.it/wiki/Block_chain), and is thus readily available to *anyone*. While there are techniques to obfuscate this information, they are problematic and ineffective. Instead, in Zerocash, users may pay one another directly, via payment transactions that reveal neither the origin, destination, or amount of the payment. This is a marked improvement compared to Bitcoin (and similar decentralized digital currencies), where every payment's information is made public for the whole world to see.
