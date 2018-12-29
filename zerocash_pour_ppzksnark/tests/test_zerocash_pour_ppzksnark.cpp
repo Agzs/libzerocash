@@ -313,8 +313,12 @@ int main(int argc, const char * argv[])
     start_profiling();
     default_r1cs_ppzksnark_pp::init_public_params();
     test_zerocash_pour_ppzksnark<default_r1cs_ppzksnark_pp>(2, 2, 4);
+    printf("========================================================================\n========================================================================\n");
     test_zerocash_pour_ppzksnark<default_r1cs_ppzksnark_pp>(2, 3, 4);
+    printf("========================================================================\n========================================================================\n");
     test_zerocash_pour_ppzksnark<default_r1cs_ppzksnark_pp>(3, 2, 4);
+    printf("========================================================================\n========================================================================\n");
     test_zerocash_pour_ppzksnark<default_r1cs_ppzksnark_pp>(3, 3, 4);
+    printf("========================================================================\n========================================================================\n");
     test_zerocash_pour_ppzksnark<default_r1cs_ppzksnark_pp>(2, 2, 32);
 }

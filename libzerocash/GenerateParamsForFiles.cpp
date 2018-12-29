@@ -11,6 +11,8 @@
 
 #include <fstream>
 
+#include "tests/timer.h"
+
 #include "Zerocash.h"
 #include "libsnark/common/default_types/r1cs_ppzksnark_pp.hpp"
 #include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
@@ -29,6 +31,8 @@ int main(int argc, char **argv)
     unsigned int tree_depth = atoi(argv[1]);
     std::string pkFile = argv[2];
     std::string vkFile = argv[3];
+
+    libzerocash::timer_start("Initialize");
 
     default_r1cs_ppzksnark_pp::init_public_params();
     zerocash_pour_keypair<default_r1cs_ppzksnark_pp> kp = zerocash_pour_keypair<default_r1cs_ppzksnark_pp>(zerocash_pour_ppzksnark_generator<default_r1cs_ppzksnark_pp>(2, 2, tree_depth));
@@ -51,5 +55,7 @@ int main(int argc, char **argv)
     vkFilePtr.flush();
     vkFilePtr.close();
 
+    libzerocash::timer_stop("Initialize");
+    
     return 0;
 }

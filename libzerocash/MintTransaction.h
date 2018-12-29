@@ -63,6 +63,15 @@ public:
 		READWRITE(internalCommitment);
     )
 
+	// For testing 
+    int getMintTxSize() {
+        int res = 0;
+        res += coinValue.size();
+        res += internalCommitment.size();
+        res + externalCommitment.getCommitmentSize();
+        return res;
+    }
+
 private:
 	std::vector<unsigned char>	coinValue;			// coin value
 	std::vector<unsigned char>	internalCommitment; // "k" in paper notation

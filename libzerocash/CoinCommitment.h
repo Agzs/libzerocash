@@ -43,6 +43,11 @@ public:
         READWRITE(commitmentValue);
 	)
 
+	// For testing 
+	int getCommitmentSize() {
+		return commitmentValue.size();
+	}
+
 private:
     std::vector<unsigned char> commitmentValue;
 };

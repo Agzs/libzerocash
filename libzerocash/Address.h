@@ -40,6 +40,22 @@ public:
 	    READWRITE(pk_enc);
 	)
 
+    // For testing 
+	const std::vector<unsigned char>& GetPublicAddressSecret() const{
+		return getPublicAddressSecret();
+	}
+
+	const std::string GetEncryptionPublicKey() const{
+		return getEncryptionPublicKey();
+	}
+
+	int getPubAddrSize() {
+        int res = 0;
+		res += a_pk.size();
+		res += pk_enc.length();
+		return res;
+	}
+
 private:
 	std::vector<unsigned char> a_pk;
 	std::string pk_enc;
@@ -71,6 +87,27 @@ public:
 	    READWRITE(a_sk);
         READWRITE(sk_enc);
 	)
+    
+	// For testing 
+	const std::vector<unsigned char>& GetAddressSecret() const{
+		return getAddressSecret();
+	}
+
+	const std::string GetEncryptionSecretKey() const{
+		return getEncryptionSecretKey();
+	}
+
+	int get_addr_pk_size() {
+		return addr_pk.getPubAddrSize();
+	}
+
+	int get_a_sk_size() {
+		return  a_sk.size();
+	}
+
+	int get_sk_enc_size() {
+		return  sk_enc.length();
+	}
 
 private:
 	PublicAddress addr_pk;
