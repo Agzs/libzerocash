@@ -2,6 +2,7 @@
 *.d
 depinst/
 depsrc/
+.vscode
 
 libzerocash.a
 libzerocash.so

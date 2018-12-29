@@ -13,6 +13,22 @@ It improves on an earlier protocol, [Zerocoin](http://zerocoin.org/), developed 
 
 Zerocash relies on Succinct Noninteractive Arguments of Knowledge (SNARK) proofs, as implemented in the open-source  [libsnark](https://github.com/scipr-lab/libsnark) library by [SCIPR Lab](http://www.scipr-lab.org/).
 
+Notes on getting it running
+----------------------------------------------------------------------------------
+
+* 1. ``./get-libsnark``,r un get-libsnark to git pull libsnark from github.com, 
+* 2. checkout the version when lightning\_circuit was generated.
+``cd depsrc/libsnark/ && git checkout 746ade7ce0f30a6f6e612e50450294c8e7ade9a4``
+* 3. Comment ``git pull`` in get-libsnark 
+* 4. run get-libsnark again, ``./get-libsnark``
+* 5. ``make``
+
+There are two bugs: 
+- fatal error: curses.h: No such file or directory <br/>
+ solution: `sudo apt-get install libncurses5-dev libncursesw5-dev` 
+
+- error: base class ‘class CryptoPP::AbstractRing<CryptoPP::Integer>’ should be explicitly initialized in the copy constructor [-Werror=extra] <br/>
+solution: removed the -Werror and -Wfatal-errors flags from the Makefile. [zcash issue](https://github.com/zcash/zcash/issues/449)
 
 For more information see the [Zerocash web site](http://zerocash-project.org).
 
