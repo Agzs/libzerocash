@@ -17,6 +17,7 @@
 #include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
 #include "zerocash_pour_ppzksnark/zerocash_pour_gadget.hpp"
 #include "zerocash_pour_ppzksnark/zerocash_pour_ppzksnark.hpp"
+#include "tests/timer.h"
 
 using namespace libzerocash;
 
@@ -27,6 +28,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    timer_start("Initialize");
     unsigned int tree_depth = atoi(argv[1]);
     std::string pkFile = argv[2];
     std::string vkFile = argv[3];
@@ -39,6 +41,7 @@ int main(int argc, char **argv)
 
     libzerocash::ZerocashParams::SaveProvingKeyToFile(&p.getProvingKey(), pkFile);
     libzerocash::ZerocashParams::SaveVerificationKeyToFile(&p.getVerificationKey(), vkFile);
+    timer_stop("Initialize");
 
     return 0;
 }

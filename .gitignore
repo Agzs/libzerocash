@@ -9,8 +9,12 @@ libzerocash.so
 zerocash_pour_ppzksnark/tests/test_zerocash_pour_ppzksnark
 zerocash_pour_ppzksnark/profiling/profile_zerocash_pour_gadget
 tests/zerocashTest
+tests/libzcashTest
 tests/merkleTest
 tests/utilTest
 libzerocash/GenerateParamsForFiles
 zerocashTest-proving-key
 zerocashTest-verification-key
+
+.vscode
+*.key

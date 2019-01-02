@@ -47,6 +47,7 @@ void ZerocashParams::SaveProvingKeyToFile(const zerocash_pour_proving_key<Zeroca
 {
     std::stringstream ssProving;
     ssProving << p_pk_1->r1cs_pk;
+    std::cout << "============ Proving key size: " << ssProving.str().length()/(1024.0*1024.0*1024.0) << "GB" << std::endl;
     std::ofstream pkFilePtr;
     pkFilePtr.open(path, std::ios::binary);
     ssProving.rdbuf()->pubseekpos(0, std::ios_base::out);
@@ -60,6 +61,7 @@ void ZerocashParams::SaveVerificationKeyToFile(const zerocash_pour_verification_
 {
     std::stringstream ssVerification;
     ssVerification << p_vk_1->r1cs_vk;
+    std::cout << "============ Verifying key size: " << ssVerification.str().length()/1024.0 << "kB" << std::endl;
     std::ofstream vkFilePtr;
     vkFilePtr.open(path, std::ios::binary);
     ssVerification.rdbuf()->pubseekpos(0, std::ios_base::out);

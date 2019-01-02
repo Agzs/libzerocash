@@ -32,6 +32,13 @@ public:
     const std::vector<unsigned char>& getAddressSecret() const;
     const std::string getEncryptionSecretKey() const;
 
+    int getPrivAddrSize() {
+        int res = 0;
+		res += a_sk.size();
+		res += sk_enc.length();
+		return res;
+    }
+
 private:
     std::vector<unsigned char> a_sk;
     std::string sk_enc;
@@ -54,6 +61,13 @@ public:
     const std::vector<unsigned char>& getPublicAddressSecret() const;
     const std::string getEncryptionPublicKey() const;
 
+    int getPubAddrSize() {
+        int res = 0;
+		res += a_pk.size();
+		res += pk_enc.length();
+		return res;
+    }
+
 private:
     std::vector<unsigned char> a_pk;
     std::string pk_enc;
@@ -73,6 +87,13 @@ public:
     bool operator==(const Address& rhs) const;
     bool operator!=(const Address& rhs) const;
 
+    int get_addr_pk_size() {
+		return addr_pk.getPubAddrSize();
+	}
+
+	int get_addr_sk_size() {
+		return  addr_sk.getPrivAddrSize();
+    }
 
     static Address CreateNewRandomAddress();
 

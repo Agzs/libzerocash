@@ -177,6 +177,24 @@ public:
         
     }
 
+    int getPourTxSize() {
+         int res = 0;
+         res += publicOldValue.size();
+         res += publicNewValue.size();
+         res += serialNumber_1.size();
+         res += serialNumber_2.size();
+         res + cm_1.getCommitmentSize();
+         res + cm_2.getCommitmentSize();
+         res += MAC_1.size();
+         res += MAC_2.size();
+         res += ciphertext_1.length();
+         res += ciphertext_2.length();
+         res += zkSNARK.length();
+         res += 2;
+ 
+         return res;
+     }
+
 private:
 
     std::vector<unsigned char>  publicOldValue;      // public input value of the Pour transaction

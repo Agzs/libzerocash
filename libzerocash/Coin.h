@@ -56,6 +56,18 @@ public:
 
     const std::vector<unsigned char>& getR() const;
 
+	// For testing 
+ 	int getCoinSize() {
+ 		int res = 0;
+ 		res += addr_pk.getPubAddrSize();
+ 		res += cm.getCommitmentSize();
+ 		res += rho.size();
+ 		res += r.size();
+ 		res += k.size();
+ 		res += coinValue.size();
+ 		return res;
+ 	}
+
 private:
 	PublicAddress addr_pk;
     CoinCommitment cm;

@@ -34,6 +34,10 @@ public:
 	bool operator==(const CoinCommitment& rhs) const;
 	bool operator!=(const CoinCommitment& rhs) const;
 
+    // For testing 
+ 	int getCommitmentSize() {
+ 		return commitmentValue.size();
+ 	}
 
 private:
     std::vector<unsigned char> commitmentValue;

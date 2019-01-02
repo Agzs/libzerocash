@@ -36,6 +36,7 @@ Coin::Coin(): addr_pk(), cm(), rho(ZC_RHO_SIZE), r(ZC_R_SIZE), coinValue(ZC_V_SI
 
 }
 
+// receiver decrypts coin and receives payment for him. --Agzs
 Coin::Coin(const std::string bucket, Address& addr): addr_pk(), cm(), rho(ZC_RHO_SIZE), r(ZC_R_SIZE), k(ZC_K_SIZE), coinValue(ZC_V_SIZE) {
     // Retreive and decode the private key
     ECIES<ECP>::PrivateKey decodedPrivateKey;
@@ -76,6 +77,8 @@ Coin::Coin(const std::string bucket, Address& addr): addr_pk(), cm(), rho(ZC_RHO
     std::vector<unsigned char> a_pk = addr.getPublicAddress().getPublicAddressSecret();
 
     this->computeCommitments(a_pk);
+
+    printf("Successfully decrypted a coin\n");
 }
 
 Coin::Coin(const PublicAddress& addr, uint64_t value): addr_pk(addr), cm(), rho(ZC_RHO_SIZE), r(ZC_R_SIZE), k(ZC_K_SIZE), coinValue(ZC_V_SIZE)
