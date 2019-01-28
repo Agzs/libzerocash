@@ -31,6 +31,8 @@ There are two bugs:
 - fatal error: curses.h: No such file or directory <br/>
  solution: `sudo apt-get install libncurses5-dev libncursesw5-dev` 
 
+- fatal error: cryptopp/osrng.h: No such file or directory <br/>
+ solution: `sudo apt-get install libcrypto++-dev libcrypto++-doc libcrypto++-utils`
 - error: base class ‘class CryptoPP::AbstractRing<CryptoPP::Integer>’ should be explicitly initialized in the copy constructor [-Werror=extra] <br/>
 solution: removed the -Werror and -Wfatal-errors flags from the Makefile. [zcash issue](https://github.com/zcash/zcash/issues/449)
 
